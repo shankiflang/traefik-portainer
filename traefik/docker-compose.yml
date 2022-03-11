@@ -12,6 +12,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    command:
+      - --providers.docker.swarmmode
     environment:
       - CF_API_EMAIL=shankiflang@gmail.com
       # - CF_DNS_API_TOKEN=
@@ -37,6 +39,10 @@ services:
       - "traefik.http.routers.traefik-secure.tls.domains[0].main=<TODO>"
       - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.<TODO>"
       - "traefik.http.routers.traefik-secure.service=api@internal"
+    deploy:
+      placement:
+          constraints:
+              - node.role == manager
 
 networks:
   proxy:
