@@ -9,10 +9,7 @@ services:
       - 80:80
       - 443:443
     command:
-<<<<<<< Updated upstream
-=======
       - --providers.docker
->>>>>>> Stashed changes
       - --providers.docker.swarmmode
     environment:
       - CF_API_EMAIL=<TODO>
